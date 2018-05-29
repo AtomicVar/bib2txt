@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        function XHR() {
+            let result = document.getElementById('out');
+            let bibtex = document.getElementById('in').value;
+            let AJAX = new XMLHttpRequest();
+            
+            AJAX.onreadystatechange = function () {
+                if (AJAX.readyState == 4 && AJAX.status == 200) {
+                    let retObj = JSON.parse(AJAX.responseText);
+                    result.innerHTML = retObj.str;
+                }
+            };
+
+            AJAX.open('POST', '/trans', true);
+            AJAX.setRequestHeader('Content-type', 'application/json');
+            let data = {
+                bibtex : bibtex
+            };
+            AJAX.send(JSON.stringify(data));
+        }
+    </script>
+    <title>Bib2Txt</title>
+</head>
+<body>
+    <h1>Bib2Txt Online by Guo Shuai</h1>
+    <p>Paste your BibTeX string here.</p>
+    <textarea id="in" cols="30" rows="10"></textarea>
+    <input type="button" value="Transform" onclick="XHR()">
+    <p id="out" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Output here.</p>
+
+    <h3>About</h6>
+    <p>Version 0.1</p>
+</body>
+</html>

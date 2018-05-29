@@ -1,0 +1,26 @@
+{
+  "name": "gsnodetest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "8.9.3",
+    "npm": "5.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.sinacloud.com/gsnodetest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "citation-js": "^0.4.0-4",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.3"
+  }
+}
